@@ -1,0 +1,30 @@
+.year-button {
+    width: 80px;
+    size: 20px;
+    /* NOTE: doesn't align properly with very large numbers. Shrink text or look into another solution? */
+    text-align: center !important;
+    justify-content: center;
+    color: white;
+}
+
+.invisible {
+    display: none;
+}
+
+.specialHr {
+    border-top: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.si {
+    display: inline;
+}
+
+.dontShowAtStart {
+    display: none;
+}
+
+.smallInput {
+    /* font-size: 30%; */
+    /* Would need to be done for all headings, manually. */
+    font-size: 100%;
+}

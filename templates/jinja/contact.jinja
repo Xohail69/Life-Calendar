@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block page_info %}
+<title>Contact Us - Life Calendar</title>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/styles/contact.css">
+    <section class="Material-contact-section section-padding section-dark">
+      <div class="container">
+          <div class="row">
+              <!-- Section Title -->
+              <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                  <h1 class="section-title">Feedback? Suggestions?</h1>
+              </div>
+          </div>
+          <div class="row">
+              <!-- Section Title -->
+              <div class="col-md-6 mt-3">
+                <p>Life Calendar was built for its users, and our goal is and always has been to provide the best life-tracking platform. We'd love to hear from you if you have any suggestions for improving the site - we take those very seriously. Likewise, if you have a question or would like to get in touch, don't hesitate to reach out to us here!</p>
+                {# NOTE: possible change email address if using custom domain w/ emails. #}
+                <p>Emails get redirected to the site's email address, moderated by Simon Ilincev. If you'd like to do things yourself without the contact form, you can reach him at <a href="mailto:simon@simonilincev.com">simon@simonilincev.com</a>.</p>
+                <hr>
+                <p>Don't forget we're open-source! If you'd like to help out or implement your suggestions yourself, you can go check out the <a href="https://github.com/Destaq/life-calendar">GitHub repository</a> and open a pull request!</p>
+              </div>
+              <!-- contact form -->
+              <div class="col-md-6">
+                  <form role="form" method="post" id="contactForm" name="contact-form">
+                      <!-- Name -->
+                      <div class="form-group label-floating">
+                        <label class="control-label" for="name">Name</label>
+                        <input class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <!-- email -->
+                      <div class="form-group label-floating">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control within-contact" id="email" type="email" name="email" required data-error="Please enter your Email">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <!-- Subject -->
+                      <div class="form-group label-floating">
+                        <label class="control-label">Subject</label>
+                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Please enter your message subject">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <!-- Message -->
+                      <div class="form-group label-floating">
+                          <label for="message" class="control-label">Message</label>
+                          <textarea class="form-control" rows="3" id="message" name="message" required data-error="Write your message"></textarea>
+                          <div class="help-block with-errors"></div>
+                      </div>
+                      <!-- Form Submit -->
+                      <div class="form-submit mt-5">
+                          <button class="btn btn-outline-secondary" type="submit" id="submit">Send Message</button>
+                          <div id="msgSubmit" class="h3 text-center hidden"></div>
+                          <div class="clearfix"></div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </section>
+    <script src="/static/js/checkEmail.js"></script>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block page_info %}
+<title>Thanks - Life Calendar</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+<center>
+    <h1>Successfully sent email!</h1>
+    {% if request.args.get('name') != None %}
+        <p>{{ request.args.get('name') }}, thanks for reaching out! We've received your emai and will try to get back to you within a few days.</p>
+    {% else %}
+        <p>Thanks for reaching out! We've received your emai and will try to get back to you within a few days.</p>
+    {% endif %}
+    <p>We really appreciate you getting back to us and helping us make Life Calendar a more useful place.<br>If you have any further questions or comments, don't hesitate at all to contact us.</p>
+    <img src="https://media3.giphy.com/media/3otPoOxyDTXjzpMbIY/200.gif" class="img-fluid" style="max-width: 65%; width: 100%" alt="thank you gif"></center>
+</div>
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block page_info %}
+<title>Log In - Life Calendar</title>
+{% endblock %}
+
+{% block content %}
+{#  Login Page - Jinja #}
+<body>
+    <center><h2>Log In</h2></center>
+    <p>Welcome back! Please login below so that you can access all of your historical data!</p>
+    <hr>
+    <form method="POST">
+    {% if error %}
+        <div class="alert alert-warning" role="alert">{{ error }}</div>
+    {% endif %}
+    <p class="form-text text-muted">New user? You can <a href="/signup">register here</a> instead.</p>
+    <div class="form-group">
+        {{ form.hidden_tag() }}
+        {{ form.email.label(id="emailLabel")}} {{ form.email(class_="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.password.label }} {{ form.password(class_="form-control") }}
+    <small id="forgotPassword"><a href="#">Forgot your password?</a></small>
+    </div>
+    <div class="form-group">
+        {{ form.submit(class_="form-control", style="background-color: #cccccc") }}
+    </div>
+<script src="/static/js/checkEmail.js"></script>
+<script src="/static/js/forgotPassword.js"></script>
+
+{# Hidden Forgot Password Modal #}
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="passwordForgotLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="passwordForgotLabel">Forgot Password?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="addWarning">
+                <p>Forgot your password? Input the email associated with your account and we'll send you instructions for how to reset your password.</p>
+                <hr>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="forgotPasswordQuery">Email Address</label>
+                        <input type="email" name="forgotPasswordQuery" id="userEmail" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="sendEmail">Send Email</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock content %}
